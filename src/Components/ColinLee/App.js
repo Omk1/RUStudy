@@ -1,13 +1,13 @@
-import '../App.css';
-import Table from './ColinLee/Table';
-import {Users} from "./ColinLee/users";
+import '../../App.css';
+import Table from './Table';
+import {Users} from "./users";
 import { useState } from 'react';
-import {db} from './ColinLee/firebase';
+import {db} from './firebase';
 import {set, ref} from "firebase/database";
 import {uid} from "uid";
-import {writeToDatabase, handleToChange} from './ColinLee/fireWrite';
+import {writeToDatabase, handleToChange} from './fireWrite';
 
-function Groups() {
+function App() {
   const [query, setQuery] = useState("");
   const keys = ["first_name", "last_name", "email"];
 
@@ -36,4 +36,4 @@ function Groups() {
   );
 }
 
-export default Groups;
+export default App;
