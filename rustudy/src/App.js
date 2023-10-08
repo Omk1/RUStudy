@@ -10,8 +10,8 @@ function App() {
   // Push Function
   const Push = () => {
      database.ref("user").set({
-      name: name,
-      age: age,
+      title: title,
+      time: time,
     }).catch(alert);
   }
 
