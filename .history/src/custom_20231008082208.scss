@@ -1,0 +1,16 @@
+$Accordion: (
+  'info': tomato,
+  'danger': teal,
+  'width': 100%,
+  'closedBackground': #ebebeb,
+  'boxShadow': 0px 2px 4px rgba(0, 0, 0, 0.1)  // Box shadow with slight opacity
+);
+
+// Apply the custom styles to the Accordion component
+.accordion {
+  .accordion-button {
+    background-color: map-get($Accordion, 'closedBackground');
+    color: #000;  // Change the text color if needed
+    box-shadow: map-get($Accordion, 'boxShadow');
+  }
+}

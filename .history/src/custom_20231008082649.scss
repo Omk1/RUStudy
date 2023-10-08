@@ -1,0 +1,16 @@
+$Accordion: (
+  'info': tomato,
+  'danger': teal,
+  'width': 100%,
+  'closedBackgroundStart': white,  // Slight beige color start
+  'closedBackgroundEnd': #f0f0f0,
+  'boxShadow': 0px 7px 29px rgba(100, 100, 111, 0.2)  // Box shadow with slight opacity
+);
+// Apply the custom styles to the Accordion component
+.accordion {
+  .accordion-button {
+    background: linear-gradient(to right, map-get($Accordion, 'closedBackgroundStart'), map-get($Accordion, 'closedBackgroundEnd'));
+    color: #000;  // Change the text color if needed
+    box-shadow: map-get($Accordion, 'boxShadow');
+  }
+}

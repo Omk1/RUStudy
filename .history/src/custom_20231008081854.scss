@@ -1,0 +1,14 @@
+$Accordion: (
+  'info': tomato,
+  'danger': teal,
+  'width': 100%,
+  'closedBackground': #e8c1c7 
+);
+
+// Apply the custom styles to the Accordion component
+.accordion {
+  .accordion-button {
+    background-color: map-get($Accordion, 'closedBackground');
+    color: #000;  // Change the text color if needed
+  }
+}

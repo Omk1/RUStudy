@@ -1,0 +1,89 @@
+import './App.css';
+import Table from './Table';
+import {Users} from "./users";
+import { useEffect, useState } from 'react';
+import {db} from './firebase';
+import {set, ref, onValue, child} from "firebase/database";
+import {writeToDatabase, handleToChange} from './fireWrite';
+import Accordion from 'react-bootstrap/Accordion';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row } from 'react-bootstrap';
+
+
+function App() {
+  const [query, setQuery] = useState("");
+  const keys = ["title", "time", "loc"];
+
+    const [title, setTitle] = useState("");
+    //const [tag, setTag] = useState("");
+    const [time, setTime] = useState("");
+    const [loc, setLoc] = useState("");
+
+    const [groups, setGroups] = useState([]);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        const groupsRef = ref(db);
+        onValue(groupsRef, (snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            const groupsArray = Object.values(data);
+            setGroups(groupsArray);
+          }
+        });
+      };
+  
+      fetchData();
+    }, []);
+
+  const search = (data) => {
+    return data.filter((item) => 
+      keys.some((key) => item[key].toLowerCase().includes(query.toLowerCase()))
+    );
+  }
+
+  return (
+    <div className="app">
+      <container>
+        <form action="" class="search-bar">
+          <input 
+          placeholder="Search..." 
+          className="search" 
+          type="search"  pattern=".*\S.*" name="search"
+          onChange={e=> setQuery(e.target.value.toLowerCase())}/>
+          <button class="search-btn" type="submit">
+            <span>Search</span>
+          </button>
+        </form>
+        <form>
+          <Row>
+            <label>Title: </label>
+            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}></input>
+          </Row>
+          <Row>
+            <label>Time: </label>
+            <input type="text" value={time} onChange={(e) => setTime(e.target.value)}></input>
+          </Row>
+          <Row>
+            <label>Location: </label>
+            <input type="text" value={loc} onChange={(e) => setLoc(e.target.value)}></input>
+          </Row>
+          <Row>
+            <label>Subject: </label>
+          </Row>
+          <button onClick={()=>writeToDatabase(title, time, loc, setTitle, setTime, setLoc)}>Submit</button>
+        </form>
+          {
+            search(groups).map((data) => (
+                <Table title={data.title}
+                    time={data.time}
+                    loc={data.loc} 
+                    />
+            ))
+          }
+        </container>
+    </div>
+  );
+}
+
+export default App;
