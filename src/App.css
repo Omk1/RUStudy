@@ -4,15 +4,19 @@
   box-sizing: border-box;
   font-family: "Reem Kufi", sans-serif !important;
 }
+
+
 img {
   max-width: 100%;
   height: auto;
 }
 .App {
   min-height: 100vh;
-  width: 85vw;
-  max-width: 1900px;
   margin: 0rem auto;
+  
+  
+ 
+  
 }
 body {
   max-width: 100%;
@@ -21,24 +25,45 @@ body {
 
 body {
   background-color: #f6f6f6;
+  
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #D0312D;
+  
+  color: white;
   min-height: 90px;
+  padding-left: 30px;
+  padding-right: 30px;  
 }
+
+
+.home-container {
+  background-image: url("./Assets/library2.avif");
+  background-size: cover;
+  background-blend-mode: multiply;
+  
+}
+
+.links {
+  max-width: 50px;
+}
+
+
 .navbar-menu-container {
   display: none;
 }
 .navbar-links-container a {
-  margin-right: 3rem;
+  padding: 1rem; 
   text-decoration: none;
   color: black;
   font-size: 1.1rem;
   font-weight: 600;
 }
+
 .primary-button {
   padding: 0.9rem 1.75rem;
   background-color: white;
@@ -50,9 +75,7 @@ nav {
   font-weight: 600;
   transition: 0.2s;
 }
-.navbar-cart-icon {
-  font-size: 1.15rem;
-}
+
 .primary-button:hover {
   background-color: rgb(234, 234, 234);
 }
@@ -60,13 +83,17 @@ nav {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+
 .home-banner-container {
   position: relative;
   display: flex;
+  padding: 200px;
   padding-top: 3rem;
+
 }
 .home-bannerImage-container {
-  position: absolute;
+ 
   top: -100px;
   right: -170px;
   z-index: -2;
@@ -82,22 +109,24 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  
 }
 .primary-heading {
   font-size: clamp(2rem, 5vw, 4rem);
   color: #4c4c4c;
   /* line-height: 5rem; */
   max-width: 600px;
+  color: white; 
 }
 .primary-text {
   font-size: clamp(1rem, 3vw, 1.5rem);
   max-width: 500px;
-  color: #6a6a6a;
+  color: white;
   margin: 1.5rem 0rem;
 }
 .secondary-button {
   padding: 1rem 2.5rem;
-  background-color: #fe9e0d;
+  background-color: #D0312D; 
   outline: none;
   border: none;
   border-radius: 5rem;
@@ -118,11 +147,12 @@ nav {
   background-color: #e48f0f;
 }
 .about-section-container {
-  margin-top: 20rem;
+  margin-top: 0rem;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 .about-background-image-container {
   position: absolute;
@@ -230,82 +260,14 @@ nav {
   color: #4c4c4c;
   cursor: pointer;
 }
-.testimonial-section-bottom {
-  margin-top: 2rem;
-  background-color: white;
-  padding: 1.5rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 750px;
-  border-radius: 2rem;
-  flex-direction: column;
-  text-align: center;
-}
-.testimonial-section-bottom {
-  margin: 2rem auto;
-}
-.testimonial-section-bottom p {
-  font-weight: 700;
-  color: #515151;
-  max-width: 500px;
-  font-size: 1.1rem;
-  margin: 2rem 0rem;
-}
-.testimonials-stars-container svg {
-  margin: 0rem 0.25rem;
-  font-size: 1.5rem;
-  color: #fe9e0d;
-}
-.testimonial-section-bottom h2 {
-  margin-top: 1.5rem;
-}
-.work-section-wrapper {
-  margin-top: 15rem;
-}
-.work-section-top p {
-  text-align: center;
-  max-width: 600px !important;
-}
-.work-section-top h1 {
-  max-width: 700px !important;
-}
-.work-section-top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.work-section-info {
-  width: 290px;
-  min-height: 350px;
-  background-color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 1rem;
-  color: #505050;
-  margin: 1rem 2rem;
-}
-.work-section-info h2 {
-  margin: 1rem 0rem;
-}
-.work-section-bottom {
-  margin-top: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.work-section-info p {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-}
+
+.registerButton {
+
+  display: inline-block;
+  
+  }
+
+
 
 @media (max-width: 1000px) {
   .navbar-links-container a {
@@ -375,23 +337,7 @@ nav {
   .primary-subheading {
     text-align: center;
   }
-  .watch-video-button {
-    margin-left: 0rem !important;
-    margin-top: 1rem;
-    font-size: 1rem !important;
-  }
-  .watch-video-button svg {
-    margin-right: 0.5rem !important;
-  }
-  .about-section-image-container {
-    margin-right: 0rem !important;
-  }
-  .work-section-wrapper {
-    margin-top: 5rem !important;
-  }
-  .work-section-bottom {
-    margin-top: 1rem !important;
-  }
+  
   .contact-form-container {
     padding: 0.5rem !important;
     flex-direction: column;
@@ -406,19 +352,12 @@ nav {
     margin-bottom: 0.8rem !important;
     text-align: center;
   }
-  .footer-wrapper {
-    flex-direction: column;
-  }
-  .footer-section-two {
-    flex-direction: column;
-    margin-top: 2rem;
-  }
-  .footer-section-columns {
-    margin: 1rem 0rem;
-  }
+
   .App {
     max-width: 95vw;
   }
+
+
 }
 @media (max-width: 600px) {
   .home-bannerImage-container,
