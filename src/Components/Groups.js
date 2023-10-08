@@ -1,37 +1,74 @@
-import '../App.css';
+
 import Table from './ColinLee/Table';
-import {Users} from "./ColinLee/users";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {db} from './ColinLee/firebase';
-import {set, ref} from "firebase/database";
-import {uid} from "uid";
-import {writeToDatabase, handleToChange} from './ColinLee/fireWrite';
+import {ref, onValue} from "firebase/database";
+import {writeToDatabase} from './ColinLee/fireWrite';
+
+import { Container, Row } from 'react-bootstrap';
+import Navbar from './Navbar';
+import About from './About';
+import "./ColinLee/ColinLee.css"; 
+import './ColinLee/custom.scss';
+
+
 
 function Groups() {
+
+
+    
   const [query, setQuery] = useState("");
-  const keys = ["first_name", "last_name", "email"];
+  const keys = ["title", "time", "loc", "tag"];
 
-  const [bro, setBro] = useState("");
+    const [title, setTitle] = useState("");
+    const [tag, setTag] = useState("");
+    const [time, setTime] = useState("");
+    const [loc, setLoc] = useState("");
 
+    const [groups, setGroups] = useState([]);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        const groupsRef = ref(db);
+        onValue(groupsRef, (snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            const groupsArray = Object.values(data);
+            setGroups(groupsArray);
+          }
+        });
+      };
+  
+      fetchData();
+    }, []);
 
   const search = (data) => {
     return data.filter((item) => 
-      keys.some(key => item[key].toLowerCase().includes(query))
-    )
+      keys.some((key) => {
+        const itemValue = item[key];
+        return itemValue && itemValue.toLowerCase().includes(query.toLowerCase());
+      })
+    );
   }
 
-  console.log(Users.filter(user=>user.first_name.toLowerCase().includes("fe")));
   return (
     <div className="app">
-      <input type="text" 
-      placeholder="Search..." 
-      className="search" 
-      onChange={e=> setQuery(e.target.value.toLowerCase())}/>
-
-      <input type="text" value={bro} onChange={e => handleToChange(e, setBro)}></input>
-      <button onClick={()=>writeToDatabase(bro, setBro)}>submit</button>
-
-      <Table data={search(Users)}/>
+      <container>
+          <h1>Groups</h1>
+          <input 
+          placeholder="Search..." 
+          className="search" 
+          onChange={e=> setQuery(e.target.value.toLowerCase())}/>
+          {
+            search(groups).map((data) => (
+                <Table title={data.title}
+                    time={data.time}
+                    loc={data.loc} 
+                    tag={data.tag}
+                    />
+            ))
+          }
+        </container>
     </div>
   );
 }

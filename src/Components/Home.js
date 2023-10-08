@@ -16,11 +16,10 @@ const Home = () => {
         </div>
         <div className="home-text-section">
           <h1 className="primary-heading">
-            Your Favourite Food Delivered Hot & Fresh
+            Find a study group where you truly belong!
           </h1>
           <p className="primary-text">
-            Healthy switcher chefs do all the prep work, like peeding, chopping
-            & marinating, so you can cook a fresh food.
+            This simple group planner allows students to work with people in the same classes, at your desired time and location. 
           </p>
           <button className="secondary-button">
             Order Now <FiArrowRight />{" "}
@@ -31,7 +30,7 @@ const Home = () => {
         </div>
       </div>
       <About />
-      <Footer />
+      
       
     </div>
     

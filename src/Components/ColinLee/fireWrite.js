@@ -2,17 +2,15 @@ import {uid} from "uid";
 import {db} from './firebase';
 import {set, ref} from "firebase/database"
 
-export const writeToDatabase = (broValue, setBro) => {
+export const writeToDatabase = (titleVal, timeVal, locVal, tagVal, setTitle, setTime, setLoc, setTag) => {
     const uuid = uid();
     set(ref(db, `/${uuid}`), {
-      bro: broValue,
+      title: titleVal, 
+      time: timeVal, 
+      loc: locVal,
+      tag: tagVal,
       uuid,
     });
 
-    setBro("");
+    setTitle(""); setTime(""); setLoc(""); setTag("");
 }
-
-export const handleToChange = (e, setBro) => {
-    setBro(e.target.value);
-}
-

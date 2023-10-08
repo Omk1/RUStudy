@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Groups from "./Components/Groups";
 import LoginPage from "./Components/LoginPage";
 import RoutesTaken from "./Components/RoutesTaken";
+import Navbar from "./Components/Navbar";
 
 
 function App() {
@@ -20,14 +21,8 @@ function App() {
           <Route path="/" exact element={<Home />} />
           <Route path = "/Groups" element= {<Groups />}/>
           <Route path="/LoginPage" element={<LoginPage />} />
-        </Routes>
-        
-
-        
-        
-        
           
-
+        </Routes>
         
       </div>
     </Router>

@@ -13,23 +13,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
-import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
-import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
-import Contact from "./Contact";
+
 import {Routes, Route, Link} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 
 const Navbar = () => {
-
-
-  const navigate = useNavigate();
-    
-
-
-  const [openMenu, setOpenMenu] = useState(false);
-  
 
   const menuOptions = [
     {

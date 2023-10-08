@@ -1,23 +1,28 @@
 import React from "react";
+import { Accordion } from "react-bootstrap";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./custom.scss"; 
 
-const Table = ({data}) => {
+
+const Table = ({title, time, loc, tag}) => {
     return (
-        <table>
-            <tbody>
-                <tr>
-                    <th>Name</th>
-                    <th>Surname</th>
-                    <th>Email</th>
-                </tr>
-                {data.map((item) =>(
-                    <tr key={item.id}>
-                        <td>{item.first_name}</td>
-                        <td>{item.last_name}</td>
-                        <td>{item.email}</td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
+        <div className="accordion">        
+        <Row>
+            <Accordion>
+            <Accordion.Item eventKey="0">
+                <Accordion.Header>{title}</Accordion.Header>
+                <Accordion.Body>
+                    <p>Time: {time}</p>
+                    <p>Location: {loc}</p>
+                    <p>Subject: {tag}</p>
+                </Accordion.Body>
+            </Accordion.Item>
+            </Accordion>
+        </Row>
+    </div>
+
     )
 }
 
