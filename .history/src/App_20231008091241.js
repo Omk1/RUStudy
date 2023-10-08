@@ -49,11 +49,11 @@ function App() {
   return (
     <div className="app">
       <container>
-          <h1>Groups</h1>
           <input 
           placeholder="Search..." 
           className="search" 
           onChange={e=> setQuery(e.target.value.toLowerCase())}/>
+
           {
             search(groups).map((data) => (
                 <Table title={data.title}
